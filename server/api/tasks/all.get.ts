@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
   return await prisma.task.findMany({
     where: {
-      userId: 0,
+      userId: 1,
     },
   });
 });

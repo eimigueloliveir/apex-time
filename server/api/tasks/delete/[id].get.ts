@@ -3,17 +3,13 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  const { id, ...body } = await readBody(event);
+  const id = parseInt(getRouterParam(event, "id")!);
 
-  await prisma.task.update({
+  await prisma.task.delete({
     where: {
       id: id,
     },
-    data: {
-        ...body,
-        userId: 1
-    }
   });
 
-  return;
+  return { statusCode: 200, statusMessage: "Deletado com sucesso!" };
 });
