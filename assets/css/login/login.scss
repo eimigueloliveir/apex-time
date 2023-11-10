@@ -4,7 +4,10 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: seagreen;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .loginBox{
@@ -43,10 +46,13 @@
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input:focus, .input-box input:valid{
+.input-box input:hover, .input-box input:focus, .input-box input:valid{
     background-color: transparent;
     color: #fff;
+    border: 2px solid rgba(255,255,255, .2);
+    box-shadow: none !important;
 }
+
 
 .input-box input::placeholder{
     color: #fff;
@@ -72,6 +78,17 @@
     color: #333;
     font-size: 16px;
     font-weight: 600;
+}
+
+.loginBox .btn:hover{
+    transform: scale(.97);
+    background: #fff;
+    color: #333;
+}
+
+.loginBox .btn:focus{
+    background: #fff;
+    color: #333;
 }
 
 .register-link{
