@@ -3,7 +3,7 @@
     import bgImage from "../assets/img/bg.jpg";
 </script>
 <template>
-    <div :style="{ backgroundImage: `url(${bgImage})` }" class="main">
+    <div :style="{ backgroundImage: `url(${bgImage})`  }" class="main">
         <slot />
     </div>
 </template>
