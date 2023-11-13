@@ -5,20 +5,36 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  let emailIsValid =
-    (await prisma.users.count({
-      where: {
-        email: body.email,
-      },
-    })) == 0;
+  if (!body?.email || !body?.password || !body?.name) {
+    return {
+      statusCode: 400,
+      statusMessage: "Campos obrigatórios não preenchidos!",
+    };
+  }
 
-  if (!emailIsValid) {
+  if (!(await emailIsValid(body.email))) {
     return { statusCode: 400, statusMessage: "Email já cadastrado!" };
   }
 
-  return await prisma.task.findMany({
-    where: {
-      userId: 1,
+  const { name, email, password } = body;
+
+  const user = await prisma.users.create({
+    data: {
+      name: name,
+      email: email,
+      password: password,
     },
   });
+
+  return user;
 });
+
+async function emailIsValid(email: string) {
+  return (
+    (await prisma.users.count({
+      where: {
+        email: email,
+      },
+    })) == 0
+  );
+}

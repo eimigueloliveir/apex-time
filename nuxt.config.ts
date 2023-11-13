@@ -1,15 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  modules: ["nuxt-auth-utils"],
   plugins: [
-    { src: '~/plugins/fontawesome.ts' }
-  ],
-
-
-})
-module.exports = {
-  css: [
-    'bootstrap/dist/css/bootstrap.css',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    {
+      src: "~/plugins/fontawesome.ts",
+    },
   ]
-}
+});

@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "nuxt build",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate && prisma migrate deploy"
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "migrate": "prisma generate && prisma migrate deploy"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -15,9 +16,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@nuxt/devtools": "latest",
-    "@sidebase/nuxt-auth": "^0.6.0-rc.1",
     "@types/node": "^20.9.0",
     "nuxt": "^3.8.1",
+    "nuxt-auth-utils": "^0.0.4",
     "prisma": "^5.5.2",
     "sass": "^1.69.5",
     "ts-node": "^10.9.1",
