@@ -20,7 +20,7 @@
     width: 60vw;
     text-align: center;
     background: transparent;
-    border: 2px solid rgba(255,255,255, .2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     color: #fff;
     border-radius: 10px;
@@ -52,8 +52,8 @@
 }
 
 .btn-primary{
-    background-color: #fff;
-    color: #000;
+    background-color: #fff !important;
+    color: #000 !important;
     border: none;
     outline: none;
     border-radius: 40px;
@@ -73,3 +73,4 @@
     margin-bottom: 1rem;
     width: 100%;
 }
+
