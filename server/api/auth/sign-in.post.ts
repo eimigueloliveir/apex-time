@@ -13,12 +13,13 @@ export default defineEventHandler(async (event) => {
   }
 
   if (!(await emailIsValid(body.email))) {
+    setResponseStatus(event, 400);
     return { statusCode: 400, statusMessage: "Email já cadastrado!" };
   }
 
   const { name, email, password } = body;
 
-  const user = await prisma.users.create({
+  var user = await prisma.users.create({
     data: {
       name: name,
       email: email,
@@ -26,7 +27,13 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  return user;
+  setUserSession(event, {
+    email: user.email,
+    id: user.id,
+    name: user.name,
+  });
+
+  return { statusCode: 200, statusMessage: "Sucesso!" };
 });
 
 async function emailIsValid(email: string) {

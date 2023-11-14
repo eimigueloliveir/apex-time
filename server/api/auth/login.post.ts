@@ -13,12 +13,7 @@ export default defineEventHandler(async (event) => {
   });
 
   if (!user) {
-    return {
-      status: 401,
-      body: {
-        message: "Invalid credentials",
-      },
-    };
+    return { statusCode: 401, statusMessage: "Invalido" };
   }
 
   await setUserSession(event, {
@@ -27,9 +22,5 @@ export default defineEventHandler(async (event) => {
     email: user.email,
   });
 
-  return await prisma.users.findMany({
-    include: {
-      tasks: true,
-    },
-  });
+  return { statusCode: 200, statusMessage: "Sucesso!" };
 });

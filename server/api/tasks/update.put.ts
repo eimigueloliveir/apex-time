@@ -15,5 +15,5 @@ export default defineEventHandler(async (event) => {
     }
   });
 
-  return;
+  return { statusCode: 200, statusMessage: "Atualizado com sucesso!"};
 });
