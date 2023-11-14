@@ -9,7 +9,7 @@ const form = {
 }
 
 function submit() {
-    console.log(form);
+
     var { data } = useFetch<BaseResponse>("/api/auth/sign-in", {
         method: "POST",
         headers: {

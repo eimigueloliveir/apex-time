@@ -16,7 +16,7 @@ function submit() {
   });
 
   if (data.value?.statusCode == 200) {
-    console.log("Tarefa Criada");
+
     isOpen.value = false;
   }
 

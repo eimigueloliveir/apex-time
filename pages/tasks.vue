@@ -9,10 +9,9 @@ var { data } = await useFetch("/api/tasks/all", {
 });
 
 async function deletetask(id: number) {
-    console.log(id);
-    await useFetch(`/api/tasks/delete/${id}`)
-    console.log("Tarefa deletada com sucesso");
 
+    await useFetch(`/api/tasks/delete/${id}`)
+    
     await router.push({
         path: "/tasks", 
         force: true,
@@ -23,9 +22,6 @@ async function deletetask(id: number) {
     })
 
     window.location.reload();
-
-    console.log("Tarefa deletada com sucesso 2");
-
 }
 
 
