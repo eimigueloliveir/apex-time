@@ -1,6 +1,26 @@
 <script setup lang="ts">
 import "../../assets/css/components/modal.scss";
+
 const isOpen = ref(false);
+
+let form = {
+  title: "",
+  content: "",
+  status: 1,
+};
+
+function submit() {
+  var { data } = useFetch("/api/tasks/create", {
+    method: "POST",
+    body: JSON.stringify(form),
+  });
+
+  if (data.value?.statusCode == 200) {
+    console.log("Tarefa Criada");
+    isOpen.value = false;
+  }
+}
+
 </script>
 
 <template>
@@ -15,20 +35,22 @@ const isOpen = ref(false);
         }" class="modalCad" v-model="isOpen">
         <div class="modalCad">
           <h2 class="mt-4">Nova Tarefa</h2>
-          <div class="modalBody">
-            <input type="text" placeholder="Título" class="input-text"/>
-            <textarea placeholder="Descrição" class="input-area"></textarea>
-            <select class="select-modal">
-              <option selected value="Iniciado">Iniciado</option>
-              <option value="Em Andamento">Em Andamento</option>
-              <option value="Concluído">Concluído</option>
-            </select>
-          </div>
-          <div class="modalFooter">
-            <UButton class="btn btn-primary mb-4" @click="isOpen = false">
-              Criar
-            </UButton>
-          </div>
+            <form @submit.prevent="submit">
+              <div class="modalBody">
+                <input type="text" placeholder="Título" v-model="form.title" required class="input-text"/>
+                <textarea placeholder="Descrição" v-model="form.content" required class="input-area"></textarea>
+                <select class="select-modal" required v-model="form.status">
+                  <option selected :value="1">Iniciado</option>
+                  <option :value="2">Em Andamento</option>
+                  <option :value="3">Concluído</option>
+                </select>
+              </div>
+              <div class="modalFooter">
+                <UButton class="btn btn-primary mb-4" type="submit">
+                  Criar
+                </UButton>
+              </div>
+          </form>
         </div>
       </UModal>
     </div>

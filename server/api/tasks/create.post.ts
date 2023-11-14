@@ -14,5 +14,5 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  return { statusCode: 200, statusMessage: "Deletado com sucesso!" };
+  return { statusCode: 200, statusMessage: "Criado com sucesso!" };
 });
