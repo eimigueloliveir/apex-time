@@ -9,7 +9,6 @@ let form = {
 
 function submit(e) {
     e.stopPropagation();
-    console.log("submit");
 
     var { data } = useFetch<BaseResponse>("/api/auth/login", {
         method: "POST",

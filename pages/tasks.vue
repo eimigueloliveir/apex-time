@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import TarefaUpdateModal from "~/components/modal/TarefaUpdateModal.vue";
 import TarefaCadModal from "../components/modal/TarefaCadModal.vue";
 
 const router = useRouter();
@@ -7,17 +8,30 @@ var { data } = await useFetch("/api/tasks/all", {
     method: "GET",
 });
 
-function deletetask(id: number) {
-    useFetch(`/api/tasks/delete/${id}`);
+async function deletetask(id: number) {
+    console.log(id);
+    await useFetch(`/api/tasks/delete/${id}`)
+    console.log("Tarefa deletada com sucesso");
 
-    router.push({path: '/tasks'});
+    await router.push({
+        path: "/tasks", 
+        force: true,
+        query: {
+            id: id
+        },
+        state: {}
+    })
+
+    window.location.reload();
+
+    console.log("Tarefa deletada com sucesso 2");
+
 }
 
 
 </script>
 <template>
     <NuxtLayout name="default">
-       
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h2 class="card-title">Tarefas</h2>
@@ -28,13 +42,11 @@ function deletetask(id: number) {
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title ">{{ task.title }}</h3>
                         <div>
-
-                            <button class="btn btn-primary me-2" type="submit">
-                                <font-awesome-icon :icon="['fas', 'pen-to-square']" />
-                            </button>
+                            <TarefaUpdateModal :id="task.id"/>
                             <button class="btn btn-danger" @click="deletetask(task.id)">
                                 <font-awesome-icon :icon="['fas', 'trash']" />
                             </button>
+
                         </div>
                     </div>
                     <div class="card-body text-left m-4">

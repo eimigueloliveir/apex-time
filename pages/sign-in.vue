@@ -29,7 +29,7 @@ function submit() {
         <div>
             <div class="loginBox">
                 <form @submit.prevent="submit">
-                    <h1>Sign-In</h1>
+                    <h1>Cadastro</h1>
                     <div class="input-box">
                         <input class="form-control" type="text" v-model="form.name" required placeholder="Nome de Usuario" />
                         <font-awesome-icon class="icon" :icon="['fas', 'user']" />
@@ -43,7 +43,7 @@ function submit() {
                         <font-awesome-icon class="icon" :icon="['fas', 'lock']" />
                     </div>
                     <div class="input-box">
-                        <button class="btn btn-primary me-3" type="submit">Sign-In</button>
+                        <button class="btn btn-primary me-3" type="submit">Cadastrar</button>
                     </div>
                     <div class="input-box">
                         <NuxtLink class="register-link" to="/">Já Tem Uma Conta?</NuxtLink>
