@@ -34,6 +34,7 @@ export default defineEventHandler(async (event) => {
   });
 
   return { statusCode: 200, statusMessage: "Sucesso!" };
+  
 });
 
 async function emailIsValid(email: string) {
