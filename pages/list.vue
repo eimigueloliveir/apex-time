@@ -1,0 +1,44 @@
+<script setup lang="ts">
+import TarefaCadModal from "../components/modal/TarefaCadModal.vue";
+</script>
+<template>
+    <NuxtLayout name="default">
+       
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="card-title">Tarefas</h2>
+                <TarefaCadModal />
+            </div>
+            <div class="card-body justify-content-between align-items-center">
+                <div class="card tarefa-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3 class="card-title ">Tarefa 1</h3>
+                        <button class="btn btn-primary" type="submit">
+                            <font-awesome-icon :icon="['fas', 'pen-to-square']" />
+                        </button>
+                    </div>
+                    <div class="card-body text-left m-4">
+                        <p class="card-text">Descrição</p>
+                    </div>
+                    <div class="card-footer text-right">
+                        <p class="card-text">Data: 12/12/2023</p>
+                    </div>
+                </div>
+                <div class="card tarefa-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3 class="card-title ">Tarefa 1</h3>
+                        <button class="btn btn-primary" type="submit">
+                            <font-awesome-icon :icon="['fas', 'pen-to-square']" />
+                        </button>
+                    </div>
+                    <div class="card-body text-left m-4">
+                        <p class="card-text">Descrição</p>
+                    </div>
+                    <div class="card-footer text-right">
+                        <p class="card-text">Data: 12/12/2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </NuxtLayout>
+</template>

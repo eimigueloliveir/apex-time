@@ -1,3 +1,6 @@
+<script setup lang="ts">
+import "../assets/css/default.scss";
+</script>
 <template>
     <NuxtLayout name="login">
         <div>
@@ -16,7 +19,7 @@
                         <button class="btn btn-primary me-3" type="submit">Login</button>
                     </div>
                     <div class="input-box">
-                        <a class="register-link" href="/sign-in">Não Tem Conta?</a>
+                        <NuxtLink class="register-link" to="/sign-in">Não Tem Conta?</NuxtLink>
                     </div>
                 </form>
             </div>
