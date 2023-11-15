@@ -8,7 +8,11 @@ export default defineEventHandler(async (event) => {
   const { id } = await getUserSession(event);
 
   if (!title || !content || !status || !id) {
-    return { statusCode: 400, statusMessage: "Campos obrigatórios não preenchidos!" };
+    setResponseStatus(event, 400);
+    return {
+      statusCode: 400,
+      statusMessage: "Campos obrigatórios não preenchidos!",
+    };
   }
 
   await prisma.task.create({
@@ -19,8 +23,6 @@ export default defineEventHandler(async (event) => {
       userId: id,
     },
   });
-
-  sendRedirect(event, "/tasks");
 
   return { statusCode: 200, statusMessage: "Criado com sucesso!" };
 });
