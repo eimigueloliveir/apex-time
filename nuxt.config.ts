@@ -7,7 +7,4 @@ export default defineNuxtConfig({
     "@fortawesome/fontawesome-svg-core/styles.css",
   ],
   plugins: [{ src: "~/plugins/fontawesome.ts" }],
-  nitro: {
-    preset: "vercel",
-  },
 });
