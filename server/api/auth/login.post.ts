@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
   });
 
   if (!user) {
+    setResponseStatus(event, 401);
     return { statusCode: 401, statusMessage: "Invalido" };
   }
 

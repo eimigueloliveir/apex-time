@@ -4,16 +4,16 @@ import TarefaCadModal from "../components/modal/TarefaCadModal.vue";
 
 const router = useRouter();
 
-var { data } = await useFetch("/api/tasks/all", {
+var { data, refresh } = await useFetch("/api/tasks/all", {
     method: "GET",
 });
 
 async function deletetask(id: number) {
 
     await useFetch(`/api/tasks/delete/${id}`)
-    
+
     await router.push({
-        path: "/tasks", 
+        path: "/tasks",
         force: true,
         query: {
             id: id
@@ -21,7 +21,7 @@ async function deletetask(id: number) {
         state: {}
     })
 
-    window.location.reload();
+    refresh();
 }
 
 
@@ -31,14 +31,14 @@ async function deletetask(id: number) {
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h2 class="card-title">Tarefas</h2>
-                <TarefaCadModal />
+                <TarefaCadModal @refresh="refresh" />
             </div>
             <div class="card-body justify-content-between align-items-center">
                 <div class="card tarefa-card" v-for="task in data">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title ">{{ task.title }}</h3>
                         <div>
-                            <TarefaUpdateModal :id="task.id"/>
+                            <TarefaUpdateModal :id="task.id" @refresh="refresh" />
                             <button class="btn btn-danger" @click="deletetask(task.id)">
                                 <font-awesome-icon :icon="['fas', 'trash']" />
                             </button>
@@ -52,7 +52,7 @@ async function deletetask(id: number) {
                         <p class="card-text">Data: {{ new Date(task.createdAt).toLocaleDateString() }}</p>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </NuxtLayout>

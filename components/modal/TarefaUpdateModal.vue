@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import "../../assets/css/components/modal.scss";
 
+const emit = defineEmits(["refresh"]);
+
 const props = defineProps({
   id: Number,
 })
@@ -14,10 +16,9 @@ let form = {
   status: 1,
 };
 
-function submit() {
-  var { data } = useFetch("/api/tasks/update", {
+async function submit() {
+  var { data } = await useFetch("/api/tasks/update", {
     method: "PUT",
-
     body: JSON.stringify(form),
   });
 
@@ -26,16 +27,14 @@ function submit() {
     isOpen.value = false;
   }
 
-  window.location.reload();
+  emit("refresh")
 }
 
-function open() {
+async function open() {
 
-  const { data } = useFetch(`/api/tasks/${props.id}`, {
+  const { data } = await useFetch(`/api/tasks/${props.id}`, {
     method: "GET",
   });
-
-  
 
   form.title = data.value!.title;
   form.content = data.value!.content;

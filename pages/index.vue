@@ -7,16 +7,16 @@ let form = {
     password: "",
 }
 
-function submit(e) {
+async function submit(e) {
     e.stopPropagation();
 
-    var { data } = useFetch<BaseResponse>("/api/auth/login", {
+    var { status } = await useFetch("/api/auth/login", {
         method: "POST",
         body: JSON.stringify(form),
     });
-
-    if (data.value?.statusCode == 400) {
-        alert(data.value.statusMessage);
+    if(status.value == 'error')
+    {
+        alert("Usuario ou senha incorretos")
         return;
     }
 
