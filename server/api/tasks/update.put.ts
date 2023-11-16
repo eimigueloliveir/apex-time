@@ -3,17 +3,21 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  const { id, ...body } = await readBody(event);
+  const { id, title, content, status } = await readBody(event);
+
+  const { id: UserId } = await getUserSession(event);
 
   await prisma.task.update({
     where: {
       id: id,
     },
     data: {
-        ...body,
-        userId: 1
-    }
+      title: title,
+      content: content,
+      status: status,
+      userId: UserId,
+    },
   });
 
-  return { statusCode: 200, statusMessage: "Atualizado com sucesso!"};
+  return { statusCode: 200, statusMessage: "Atualizado com sucesso!" };
 });
