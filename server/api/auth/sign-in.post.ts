@@ -13,7 +13,6 @@ export default defineEventHandler(async (event) => {
   }
 
   if (!(await emailIsValid(body.email))) {
-    setResponseStatus(event, 400);
     return { statusCode: 400, statusMessage: "Email já cadastrado!" };
   }
 
@@ -34,7 +33,6 @@ export default defineEventHandler(async (event) => {
   });
 
   return { statusCode: 200, statusMessage: "Sucesso!" };
-  
 });
 
 async function emailIsValid(email: string) {

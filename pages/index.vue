@@ -14,6 +14,7 @@ async function submit(e) {
         method: "POST",
         body: JSON.stringify(form),
     });
+    
     if(status.value == 'error')
     {
         alert("Usuario ou senha incorretos")

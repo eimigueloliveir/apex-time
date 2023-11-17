@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import "../assets/css/default.scss";
-import { type BaseResponse } from "../types/BaseResponse";
 
 const form = {
     name: "",
@@ -8,19 +7,21 @@ const form = {
     password: "",
 }
 
-function submit() {
-
-    var { data } = useFetch<BaseResponse>("/api/auth/sign-in", {
+async function submit() {
+    var { data } = await useFetch("/api/auth/sign-in", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: form
     });
 
-    if (data.value?.statusCode == 200){
-        navigateTo('/tasks')
+    if (data.value?.statusCode != 200) {
+        alert(data.value?.statusMessage)
+        return;
     }
+
+    navigateTo('/tasks');
 }
 
 </script>
@@ -31,7 +32,8 @@ function submit() {
                 <form @submit.prevent="submit">
                     <h1>Cadastro</h1>
                     <div class="input-box">
-                        <input class="form-control" type="text" v-model="form.name" required placeholder="Nome de Usuario" />
+                        <input class="form-control" type="text" v-model="form.name" required
+                            placeholder="Nome de Usuario" />
                         <font-awesome-icon class="icon" :icon="['fas', 'user']" />
                     </div>
                     <div class="input-box">
