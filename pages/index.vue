@@ -32,7 +32,7 @@ async function submit(e) {
                 <form @submit.prevent="submit">
                     <h1>Login</h1>
                     <div class="input-box">
-                        <input class="form-control" type="text" v-model="form.email" required placeholder="Nome de Usuario" />
+                        <input class="form-control" type="text" v-model="form.email" required placeholder="Email" />
                         <font-awesome-icon class="icon" :icon="['fas', 'user']" />
                     </div>
                     <div class="input-box">

@@ -21,7 +21,11 @@ async function submit() {
 
     isOpen.value = false;
   }
-
+  form = {
+    title: "",
+    content: "",
+    status: 1,
+  };
   emit("refresh");
 }
 
