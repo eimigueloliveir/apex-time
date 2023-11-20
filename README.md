@@ -20,7 +20,7 @@ npm run build
 ```
 
 ```
-npm run preview
+node --env-file=.env .output/server/index.mjs
 ```
 
 Acesse o localhost:3000
