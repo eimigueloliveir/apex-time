@@ -2,8 +2,6 @@
 import TarefaUpdateModal from "~/components/modal/TarefaUpdateModal.vue";
 import TarefaCadModal from "../components/modal/TarefaCadModal.vue";
 
-const router = useRouter();
-
 var { data, refresh } = await useFetch("/api/tasks/all", {
     method: "GET",
 });
@@ -11,15 +9,6 @@ var { data, refresh } = await useFetch("/api/tasks/all", {
 async function deletetask(id: number) {
 
     await useFetch(`/api/tasks/delete/${id}`)
-
-    await router.push({
-        path: "/tasks",
-        force: true,
-        query: {
-            id: id
-        },
-        state: {}
-    })
 
     refresh();
 }
@@ -30,6 +19,9 @@ async function deletetask(id: number) {
     <NuxtLayout name="default">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
+                <NuxtLink to="/" class="btn btn-primary">
+                    <font-awesome-icon :icon="['fas', 'arrow-left']" />
+                </NuxtLink>
                 <h2 class="card-title">Tarefas</h2>
                 <TarefaCadModal @refresh="refresh" />
             </div>
@@ -42,17 +34,18 @@ async function deletetask(id: number) {
                             <button class="btn btn-danger" @click="deletetask(task.id)">
                                 <font-awesome-icon :icon="['fas', 'trash']" />
                             </button>
-
                         </div>
                     </div>
-                    <div class="card-body text-left m-4">
+                    <div class="card-body text-left m-3">
                         <p class="card-text">{{ task.content }}</p>
                     </div>
-                    <div class="card-footer text-right">
+                    <div class="card-footer d-flex justify-content-between">
+                        <p class="card-text" v-if="task.status == 1">Status: Iniciado</p>
+                        <p class="card-text" v-else-if="task.status == 2">Status: Em andamento</p>
+                        <p class="card-text" v-else-if="task.status == 3">Status: Concluido</p>
                         <p class="card-text">Data: {{ new Date(task.createdAt).toLocaleDateString() }}</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </NuxtLayout>
