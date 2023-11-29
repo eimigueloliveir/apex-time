@@ -1,5 +1,13 @@
 # Apex Time
 
+## Frameworks e ferramentas Utilizadas 
+
+- [Nuxt Js 3](https://nuxt.com/)
+- [Nuxt UI](https://ui.nuxt.com/getting-started/installation)
+- [Font Awesome](https://fontawesome.com/search?o=r&m=free)
+- [Prisma](https://www.prisma.io/)
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
 ## Preparando Ambiente
 
 - [Node](https://nodejs.org/en/download)

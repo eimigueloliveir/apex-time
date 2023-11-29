@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TarefaUpdateModal from "~/components/modal/TarefaUpdateModal.vue";
 import TarefaCadModal from "../components/modal/TarefaCadModal.vue";
+import CalendarioModal from "~/components/modal/CalendarioModal.vue";
 
 var { data, refresh } = await useFetch("/api/tasks/all", {
     method: "GET",
@@ -23,7 +24,10 @@ async function deletetask(id: number) {
                     <font-awesome-icon :icon="['fas', 'arrow-left']" />
                 </NuxtLink>
                 <h2 class="card-title">Tarefas</h2>
-                <TarefaCadModal @refresh="refresh" />
+                <div>
+                    <CalendarioModal :tasks="data" />
+                    <TarefaCadModal @refresh="refresh" />
+                </div>
             </div>
             <div class="card-body justify-content-between align-items-center">
                 <div class="card tarefa-card" v-for="task in data">
