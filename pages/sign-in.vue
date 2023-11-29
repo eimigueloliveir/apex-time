@@ -21,7 +21,7 @@ async function submit() {
         return;
     }
 
-    navigateTo('/tasks');
+    navigateTo('/');
 }
 
 </script>

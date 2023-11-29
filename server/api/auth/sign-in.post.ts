@@ -26,12 +26,6 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  setUserSession(event, {
-    email: user.email,
-    id: user.id,
-    name: user.name,
-  });
-
   return { statusCode: 200, statusMessage: "Sucesso!" };
 });
 
