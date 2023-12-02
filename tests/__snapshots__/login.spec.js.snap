@@ -1,0 +1,120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Login > Pode Acessar Cadastro 1`] = `
+"<nuxtlayout name=\\"login\\">
+  <div>
+    <div class=\\"loginBox\\">
+      <form>
+        <h1>Cadastro</h1>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Nome de Usuario\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,user\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Email\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,envelope\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"password\\" required=\\"\\" placeholder=\\"Senha\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,lock\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><button class=\\"btn btn-primary me-3\\" type=\\"submit\\">Cadastrar</button></div>
+        <div class=\\"input-box\\">
+          <nuxtlink class=\\"register-link\\" to=\\"/\\">Já Tem Uma Conta?</nuxtlink>
+        </div>
+      </form>
+    </div>
+  </div>
+</nuxtlayout>"
+`;
+
+exports[`Login > Pode Acessar Login 1`] = `
+"<nuxtlayout name=\\"login\\">
+  <div>
+    <div class=\\"loginBox\\">
+      <form>
+        <h1>Login</h1>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Email\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,user\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"password\\" required=\\"\\" placeholder=\\"Senha\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,lock\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><button class=\\"btn btn-primary me-3\\" type=\\"submit\\">Login</button></div>
+        <div class=\\"input-box\\">
+          <nuxtlink class=\\"register-link\\" to=\\"/sign-in\\">Não Tem Conta?</nuxtlink>
+        </div>
+      </form>
+    </div>
+  </div>
+</nuxtlayout>"
+`;
+
+exports[`Login > Pode Acessar signup 1`] = `
+"<nuxtlayout name=\\"login\\">
+  <div>
+    <div class=\\"loginBox\\">
+      <form>
+        <h1>Cadastro</h1>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Nome de Usuario\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,user\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Email\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,envelope\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"password\\" required=\\"\\" placeholder=\\"Senha\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,lock\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><button class=\\"btn btn-primary me-3\\" type=\\"submit\\">Cadastrar</button></div>
+        <div class=\\"input-box\\">
+          <nuxtlink class=\\"register-link\\" to=\\"/\\">Já Tem Uma Conta?</nuxtlink>
+        </div>
+      </form>
+    </div>
+  </div>
+</nuxtlayout>"
+`;
+
+exports[`Login > Pode Cadastrar 1`] = `
+"<nuxtlayout name=\\"login\\">
+  <div>
+    <div class=\\"loginBox\\">
+      <form>
+        <h1>Cadastro</h1>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Nome de Usuario\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,user\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Email\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,envelope\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"password\\" required=\\"\\" placeholder=\\"Senha\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,lock\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><button class=\\"btn btn-primary me-3\\" type=\\"submit\\">Cadastrar</button></div>
+        <div class=\\"input-box\\">
+          <nuxtlink class=\\"register-link\\" to=\\"/\\">Já Tem Uma Conta?</nuxtlink>
+        </div>
+      </form>
+    </div>
+  </div>
+</nuxtlayout>"
+`;
+
+exports[`Login > should render Login 1`] = `
+"<nuxtlayout name=\\"login\\">
+  <div>
+    <div class=\\"loginBox\\">
+      <form>
+        <h1>Login</h1>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"text\\" required=\\"\\" placeholder=\\"Email\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,user\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><input class=\\"form-control\\" type=\\"password\\" required=\\"\\" placeholder=\\"Senha\\">
+          <font-awesome-icon class=\\"icon\\" icon=\\"fas,lock\\"></font-awesome-icon>
+        </div>
+        <div class=\\"input-box\\"><button class=\\"btn btn-primary me-3\\" type=\\"submit\\">Login</button></div>
+        <div class=\\"input-box\\">
+          <nuxtlink class=\\"register-link\\" to=\\"/sign-in\\">Não Tem Conta?</nuxtlink>
+        </div>
+      </form>
+    </div>
+  </div>
+</nuxtlayout>"
+`;
