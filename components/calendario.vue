@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import "../../assets/css/components/modal.scss";
+import "../assets/css/components/modal.scss";
 
 const emit = defineEmits(["refresh"]);
 
