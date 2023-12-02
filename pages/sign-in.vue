@@ -32,16 +32,16 @@ async function submit() {
                 <form @submit.prevent="submit">
                     <h1>Cadastro</h1>
                     <div class="input-box">
-                        <input class="form-control" type="text" v-model="form.name" required
+                        <input class="form-control" name="username" type="text" v-model="form.name" required
                             placeholder="Nome de Usuario" />
                         <font-awesome-icon class="icon" :icon="['fas', 'user']" />
                     </div>
                     <div class="input-box">
-                        <input class="form-control" type="text" v-model="form.email" required placeholder="Email" />
+                        <input class="form-control" name="email" type="text" v-model="form.email" required placeholder="Email" />
                         <font-awesome-icon class="icon" :icon="['fas', 'envelope']" />
                     </div>
                     <div class="input-box">
-                        <input class="form-control" type="password" v-model="form.password" required placeholder="Senha" />
+                        <input class="form-control" name="password" type="password" v-model="form.password" required placeholder="Senha" />
                         <font-awesome-icon class="icon" :icon="['fas', 'lock']" />
                     </div>
                     <div class="input-box">
