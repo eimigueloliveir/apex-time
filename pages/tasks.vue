@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import TarefaUpdateModal from "../components/modal/TarefaUpdateModal.vue";
 import TarefaCadModal from "../components/modal/TarefaCadModal.vue";
-import Calendario from "../components/calendario.vue";
 
 var { data, refresh } = await useFetch("/api/tasks/all", {
     method: "GET",
