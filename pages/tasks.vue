@@ -23,7 +23,10 @@ async function deletetask(id: number) {
                 <NuxtLink to="/" class="btn btn-primary">
                     <font-awesome-icon :icon="['fas', 'arrow-left']" />
                 </NuxtLink>
-                <h2 class="card-title">Tarefas</h2>
+                <div>
+                    <h1>Bem vindo</h1>
+                    <h2 class="card-title">Tarefas</h2>
+                </div>
                 <div>
                     <CalendarioModal :tasks="data" />
                     <TarefaCadModal @refresh="refresh" />
@@ -47,7 +50,7 @@ async function deletetask(id: number) {
                         <p class="card-text" v-if="task.status == 1">Status: Iniciado</p>
                         <p class="card-text" v-else-if="task.status == 2">Status: Em andamento</p>
                         <p class="card-text" v-else-if="task.status == 3">Status: Concluido</p>
-                        <p class="card-text">Data: {{ new Date(task.createdAt).toLocaleDateString() }}</p>
+                        <p class="card-text">Data: {{ new Date(task.date).toLocaleString() }}</p>
                     </div>
                 </div>
             </div>

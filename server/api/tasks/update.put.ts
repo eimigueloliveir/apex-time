@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  const { id, title, content, status } = await readBody(event);
+  const { id, title, content, status, date } = await readBody(event);
 
   const { id: UserId } = await getUserSession(event);
 
@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
       content: content,
       status: status,
       userId: UserId,
+      date: new Date(date).toISOString(),
     },
   });
 

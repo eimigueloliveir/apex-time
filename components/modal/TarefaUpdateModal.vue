@@ -14,6 +14,7 @@ let form = {
   title: "",
   content: "",
   status: 1,
+  date: '',
 };
 
 async function submit() {
@@ -39,6 +40,7 @@ async function open() {
   form.title = data.value!.title;
   form.content = data.value!.content;
   form.status = data.value!.status;
+  form.date = new Date(data.value!.date).toLocaleDateString();
 
   isOpen.value = true;
 }
@@ -61,6 +63,7 @@ async function open() {
               <div class="modalBody">
                 <input type="text" placeholder="Título" v-model="form.title" required class="input-text"/>
                 <textarea placeholder="Descrição" v-model="form.content" required class="input-area"></textarea>
+                <input type="datetime-local" v-model="form.date" required class="input-text"/>
                 <select class="select-modal" required v-model="form.status">
                   <option selected :value="1">Iniciado</option>
                   <option :value="2">Em Andamento</option>

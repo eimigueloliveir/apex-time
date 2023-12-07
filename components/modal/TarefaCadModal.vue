@@ -9,6 +9,7 @@ let form = {
   title: "",
   content: "",
   status: 1,
+  date: new Date(),
 };
 
 async function submit() {
@@ -25,6 +26,7 @@ async function submit() {
     title: "",
     content: "",
     status: 1,
+    date: new Date(),
   };
   emit("refresh");
 }
@@ -47,6 +49,7 @@ async function submit() {
           <div class="modalBody">
             <input type="text" placeholder="Título" v-model="form.title" required class="input-text" />
             <textarea placeholder="Descrição" v-model="form.content" required class="input-area"></textarea>
+            <input type="datetime-local" v-model="form.date" required class="input-text" />
             <select class="select-modal" required v-model="form.status">
               <option selected :value="1">Iniciado</option>
               <option :value="2">Em Andamento</option>
